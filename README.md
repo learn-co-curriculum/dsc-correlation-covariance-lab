@@ -1,16 +1,18 @@
 
 # Covariance and Correlation - Lab
 
+## Introduction
+
 In this lab, we shall working towards calculating covariance and correlation for a given dataset in python. We shall use the formulas shown in previous lesson and verify our results with python libraries.
 
 ## Objectives
 
-You will be able to 
+You will be able to:
 * Calculate and and interpret correlation and covariance for given variables
 * Build density and scatter plots to visually identify the level of dependence between variables
 * Perform covariance and correlation using python and numpy 
 
-### Dataset
+## Dataset
 
 Included dataset (heightWeight.csv) includes 20 heights (inches) and weights(pounds). Yes, it is a particularly small dataset and will help us focus more on seeing covariance and correlation in action. At this point, you should be able to calculate the average height and average weight. You can also explain the medians, variances and standard deviations for this dataset.
 
@@ -290,7 +292,7 @@ plt.scatter(data.height, data.Weight)
 
 So we can see there is quite a bit of positive relationship between the two, but a covariance value is a bit hard to interpret. So let's try calculating correlation. 
 
-### Calculate Correlation
+## Calculate Correlation
 
 Once again, heres the formula to calculate the correlation. 
 ![](cor.png)
@@ -383,4 +385,4 @@ Another matrix similar to above. And we see that a correlation of a variable to 
 
 ## Summary 
 
-In this lab we saw how to calculate the covariance and correlation between variables. We also looked at mean normalization and dot products which will be revisited later in the course. FInally we saw how to calculate these measures using pandas built in methods. 
+In this lab we saw how to calculate the covariance and correlation between variables. We also looked at mean normalization and dot products which will be revisited later in the course. Finally we saw how to calculate these measures using pandas built in methods. 
