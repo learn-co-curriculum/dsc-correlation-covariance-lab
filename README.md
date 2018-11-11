@@ -180,7 +180,7 @@ dot_product(a,b)
 
 
 
-So we have the numerator of the formula sorted out. Let's finally write a function `covariance()` that will take heigt and weight lists we created earlier and return the covariance value using the functions we created earlier. 
+So we have the numerator of the formula sorted out. Let's finally write a function `covariance()` that will take height and weight lists we created earlier and return the covariance value using the functions we created earlier. 
 
 
 ```python
@@ -269,7 +269,7 @@ data.cov()
 
 
 
-Okie so covariance (as well as correlation) are usually shown in matrix form. the covariance between height and weight is exactly what we calculated. the matrix also shows the covariance of a variable with itself. So this gives us magnitude which is a bit hard to interpret. How about we visualize height and weight on a scatter plot ! 
+Okay so covariance (as well as correlation) are usually shown in matrix form. the covariance between height and weight is exactly what we calculated. the matrix also shows the covariance of a variable with itself. So this gives us magnitude which is a bit hard to interpret. How about we visualize height and weight on a scatter plot ! 
 
 
 ```python
@@ -297,7 +297,7 @@ So we can see there is quite a bit of positive relationship between the two, but
 Once again, heres the formula to calculate the correlation. 
 ![](cor.png)
 
-lots of mean normalizations going on here. It shouldnt be too hard now to implement this using our functions above.
+lots of mean normalizations going on here. It shouldn't be too hard now to implement this using our functions above.
 
 
 ```python
