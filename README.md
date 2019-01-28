@@ -118,7 +118,10 @@ So there you go, not much changes in the shape of the data. Try repeating above 
 
 #### The dot product
 
-So now that we have our new normalized datasets. According to the numerator in the formula,we have to take the **DOT PRODUCT** of these two vector values. A dot product  let's us apply the directional growth of one vector to another. Dot products are very important in vector calculus for a number of applications. [Here is a great article explaining this in detail](https://betterexplained.com/articles/vector-calculus-understanding-the-dot-product/). 
+So now that we have our new normalized datasets. According to the numerator in the formula,we have to take the **DOT PRODUCT** of these two vector values. 
+> A dot product is a linear algebraic operation that takes two equal-length sequences of numbers and returns a single number which can be used as a measure of similarity between these sequences (also known as vectors).
+
+[Here is a great article explaining this in detail](https://betterexplained.com/articles/vector-calculus-understanding-the-dot-product/). We will cover more of this in our section dedicated to linear algebra. 
 
 For two vectors a and b, a dot product is calculated by multiplying each element of one vector to its counterpart in the second , and then adding them up together.  
 ```
