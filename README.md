@@ -12,6 +12,8 @@ You will be able to:
 * Build density and scatter plots to visually identify the level of dependence between variables
 * Perform covariance and correlation using python and numpy 
 
+**TESTING MMMMMMMM**
+
 ## Dataset
 
 Included dataset (heightWeight.csv) includes 20 heights (inches) and weights(pounds). Yes, it is a particularly small dataset and will help us focus more on seeing covariance and correlation in action. At this point, you should be able to calculate the average height and average weight. You can also explain the medians, variances and standard deviations for this dataset.
