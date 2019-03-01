@@ -1,16 +1,20 @@
 
 # Covariance and Correlation - Lab
 
+## Introduction
+
 In this lab, we shall working towards calculating covariance and correlation for a given dataset in python. We shall use the formulas shown in previous lesson and verify our results with python libraries.
 
 ## Objectives
 
-You will be able to 
+You will be able to:
 * Calculate and and interpret correlation and covariance for given variables
 * Build density and scatter plots to visually identify the level of dependence between variables
 * Perform covariance and correlation using python and numpy 
 
-### Dataset
+**TESTING MMMMMMMM**
+
+## Dataset
 
 Included dataset (heightWeight.csv) includes 20 heights (inches) and weights(pounds). Yes, it is a particularly small dataset and will help us focus more on seeing covariance and correlation in action. At this point, you should be able to calculate the average height and average weight. You can also explain the medians, variances and standard deviations for this dataset.
 
@@ -117,11 +121,11 @@ Great so you see, our function maintains the variance of list elements and moves
 So there you go, not much changes in the shape of the data. Try repeating above with weight. 
 
 #### The dot product
+So now that we have our new normalized datasets. According to the numerator in the formula,we have to take the DOT PRODUCT of these two vector values.
 
-So now that we have our new normalized datasets. According to the numerator in the formula,we have to take the **DOT PRODUCT** of these two vector values. 
-> A dot product is a linear algebraic operation that takes two equal-length sequences of numbers and returns a single number which can be used as a measure of similarity between these sequences (also known as vectors).
+>A dot product is a linear algebraic operation that takes two equal-length sequences of numbers and returns a single number which can be used as a measure of similarity between these sequences (also known as vectors).
 
-[Here is a great article explaining this in detail](https://betterexplained.com/articles/vector-calculus-understanding-the-dot-product/). We will cover more of this in our section dedicated to linear algebra. 
+[Here is a great article explaining this in detail](https://betterexplained.com/articles/vector-calculus-understanding-the-dot-product/). We will cover more of this in our section dedicated to linear algebra.
 
 For two vectors a and b, a dot product is calculated by multiplying each element of one vector to its counterpart in the second , and then adding them up together.  
 ```
@@ -240,7 +244,7 @@ Okay so covariance (as well as correlation) are usually shown in matrix form. th
 
 So we can see there is quite a bit of positive relationship between the two, but a covariance value is a bit hard to interpret. So let's try calculating correlation. 
 
-### Calculate Correlation
+## Calculate Correlation
 
 Once again, heres the formula to calculate the correlation. 
 ![](cor.png)
@@ -316,4 +320,4 @@ Another matrix similar to above. And we see that a correlation of a variable to 
 
 ## Summary 
 
-In this lab we saw how to calculate the covariance and correlation between variables. We also looked at mean normalization and dot products which will be revisited later in the course. FInally we saw how to calculate these measures using pandas built in methods. 
+In this lab we saw how to calculate the covariance and correlation between variables. We also looked at mean normalization and dot products which will be revisited later in the course. Finally we saw how to calculate these measures using pandas built in methods. 
