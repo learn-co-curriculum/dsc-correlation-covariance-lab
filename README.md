@@ -131,7 +131,7 @@ sns.distplot(height)
 
 
 
-![png](index_files/index_6_1.png)
+![png](index_files/index_5_1.png)
 
 
 So there you go, not much changes in the shape of the data. Try repeating above with weight. 
@@ -290,7 +290,7 @@ plt.scatter(data.height, data.Weight)
 
 
 
-![png](index_files/index_14_1.png)
+![png](index_files/index_13_1.png)
 
 
 So we can see there is quite a bit of positive relationship between the two, but a covariance value is a bit hard to interpret. So let's try calculating correlation. 
