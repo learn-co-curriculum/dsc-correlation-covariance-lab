@@ -3,7 +3,7 @@
 
 ## Introduction
 
-In this lab, we shall working towards calculating covariance and correlation for a given dataset in python. We shall use the formulas shown in previous lesson and verify our results with python libraries.
+In this lab, you will work towards calculating covariance and correlation for a given dataset in python. You'll use the formulas shown in previous lesson and verify our results with python libraries.
 
 ## Objectives
 
@@ -12,30 +12,30 @@ You will be able to:
 * Build density and scatter plots to visually identify the level of dependence between variables
 * Perform covariance and correlation using python and numpy 
 
-**TESTING MMMMMMMM**
 
-## Dataset
+## The Dataset
 
-Included dataset (heightWeight.csv) includes 20 heights (inches) and weights(pounds). Yes, it is a particularly small dataset and will help us focus more on seeing covariance and correlation in action. At this point, you should be able to calculate the average height and average weight. You can also explain the medians, variances and standard deviations for this dataset.
+Included dataset (heightWeight.csv) includes 20 heights (in inches) and weights (in pounds). Thia small dataset will help us focus more on seeing covariance and correlation in action!
 
-But all of those measurements are only concerned with a **single variable**. What if we want to see: 
+At this point, you should be able to calculate the average height and average weight. You can also explain the medians, variances and standard deviations for this dataset.
 
-How height interacts with weight ? 
+But all of those measurements are only concerned with a **single variable**. In this lab, you'll answer the following questions:
 
-Does weight increase as height increases ?
+1. How does height interact with weight? 
+2. Does weight increase as height increases?
+3. Are weight and height not related at all?
 
-Are Weight and Height not related at all ?
+There are always exceptions, but when you look at the population in general, taller people will tend to weigh more than shorter people. While you should *always* be cautious when generalizing, generalization of information can be very useful as it shows you a bigger picture that you can build your intuitions upon. This is also what a lot of core statistical principles are built upon.
 
-Note while there are plenty of fat short people and overly skinny tall people, but when you look at the population at large, taller people will tend to weigh more than shorter people. This generalization of information is very common as it shows you a bigger picture that you can build your intuitions upon.
 
-Let's first load this dataset into pandas. Read the file "heightWeight.csv" and for header, length of the records and basic stats. 
+First, let's load this dataset in python using pandas. Next, print the length of the data, the head of the data, and the basic statistics of the data.
 
 
 ```python
 # Load the dataset into pandas and perform basic inspection
 
 import pandas as pd
-data =pd.read_csv('heightWeight.csv')
+data = pd.read_csv('heightWeight.csv')
 
 print (len(data))
 
@@ -62,15 +62,18 @@ print (data.describe())
     max    74.000000  210.000000
 
 
-### Calculate covariance 
+## Calculating the Covariance 
 
 Here's the covariance formula once again. 
 
-![](cov2.png)
+$$cov(x,y) = \frac{1}{n-1}\displaystyle\sum_{i=1}^{n}(x_i -\bar x)(y_i - \bar y)$$
 
-We would use (n-1) due to the fact that we are working with samples of a bigger population here. 
+Note that we devide by $(n-1)$ here, because of the assumption that this particular data is a _sample of a bigger population_. The bigger population here could be the entire world population. When working with populations. The general rule is to divide by $n$. When working with a sample, you should divide by $n-1$. In practice, however, you'll see the two formulas are often being used interchangeably. 
 
-#### Mean normalization 
+### Mean normalization 
+
+Looking at the formula of covariance, you'll noticed that it is composed out of $(x_i -\bar x)$ and $(y_i -\bar y)$ which are also known as the **mean normalized** variables $x$ and $y$. The idea is that you take each element in $x$ and $y$ and 
+
 
 But before we do this, we have to ensure the that both variables are **Mean Normalized** (as shown in the numerator above). i.e. both variables have mean values = 0 . This allows us to calculate how much they vary while disregarding their distance from each other. A bit like standardization that we saw before, but here we are not standardizing the spread (standard deviation), as that is what needs to be studied. So the formula to mean normalize a data set is : 
 
@@ -138,7 +141,7 @@ sns.distplot(height)
 
 So there you go, not much changes in the shape of the data. Try repeating above with weight. 
 
-#### The dot product
+### The Dot Product
 So now that we have our new normalized datasets. According to the numerator in the formula,we have to take the DOT PRODUCT of these two vector values.
 
 >A dot product is a linear algebraic operation that takes two equal-length sequences of numbers and returns a single number which can be used as a measure of similarity between these sequences (also known as vectors).
@@ -297,11 +300,10 @@ plt.scatter(data.height, data.Weight)
 
 So we can see there is quite a bit of positive relationship between the two, but a covariance value is a bit hard to interpret. So let's try calculating correlation. 
 
-## Calculate Correlation
+## Calculating the Correlation
 
 Once again, heres the formula to calculate the correlation. 
-![](cor.png)
-
+$$ r = \frac{\sum_{i=1}^{n}(x_i -\bar x)(y_i - \bar y)} {\sqrt{\sum_{i=1}^{n}(x_i - \bar x)^2 \sum_{i=1}^{n}(y_i-\bar y)^2}}$$
 lots of mean normalizations going on here. It shouldn't be too hard now to implement this using our functions above.
 
 
