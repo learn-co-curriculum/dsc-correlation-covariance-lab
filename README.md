@@ -118,12 +118,16 @@ Use seaborn to plot the height variable distribution before and after the normal
 
 ```python
 # Visualize the height data distribution before and after mean normalization 
-
+% matplotlib inline
 height = mean_normalize(data.height)
 import seaborn as sns
 sns.distplot(data.height)
 sns.distplot(height);
 ```
+
+
+![png](index_files/index_5_0.png)
+
 
 There you go! The _shape_ of the data isn't changed, but the mean is just shifted! You can also try this for the weight variable.
 
