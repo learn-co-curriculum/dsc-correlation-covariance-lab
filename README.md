@@ -36,13 +36,13 @@ First, let's load this dataset in python using pandas. Next, print the length of
 
 
 # 20
-#    height  Weight
+#    height  weight
 # 0      68     165
 # 1      71     201
 # 2      61     140
 # 3      69     170
 # 4      71     192
-#           height      Weight
+#           height      weight
 # count  20.000000   20.000000
 # mean   66.850000  165.800000
 # std     5.112163   28.971129
@@ -165,7 +165,7 @@ def covariance(var1, var2):
 
 # Uncomment below to check your function
 
-# covariance(data['height'], data['Weight'])
+# covariance(data['height'], data['weight'])
 
 # 144.75789473684208
 ```
@@ -261,7 +261,7 @@ def correlation(var1,var2):
     
     pass
 
-# correlation(data['height'], data['Weight'])
+# correlation(data['height'], data['weight'])
 
 # 0.98
 ```
