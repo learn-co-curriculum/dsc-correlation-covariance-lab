@@ -10,7 +10,7 @@ In this lab, you will work towards calculating covariance and correlation for a 
 You will be able to:
 * Calculate and and interpret correlation and covariance for given variables
 * Build density and scatter plots to visually identify the level of dependence between variables
-* Perform covariance and correlation using python and numpy 
+* Compute covariance and correlation using numpy and pandas
 
 
 ## The Dataset
