@@ -3,19 +3,19 @@
 
 ## Introduction
 
-In this lab, you will work towards calculating covariance and correlation for a given dataset in python. You'll use the formulas shown in previous lesson and verify our results with python libraries.
+In this lab, you will work towards calculating covariance and correlation for a given dataset in python. You'll use the formulas shown in previous lessons and verify our results with python libraries.
 
 ## Objectives
 
 You will be able to:
-* Calculate and and interpret correlation and covariance for given variables
+* Calculate and interpret correlation and covariance for given variables
 * Build density and scatter plots to visually identify the level of dependence between variables
 * Compute covariance and correlation using numpy and pandas
 
 
 ## The Dataset
 
-Included dataset (heightWeight.csv) includes 20 heights (in inches) and weights (in pounds). Thia small dataset will help us focus more on seeing covariance and correlation in action!
+Included dataset (heightWeight.csv) includes 20 heights (in inches) and weights (in pounds). This small dataset will help us focus more on seeing covariance and correlation in action!
 
 At this point, you should be able to calculate the average height and average weight. You can also explain the medians, variances and standard deviations for this dataset.
 
@@ -68,11 +68,11 @@ Here's the covariance formula once again.
 
 $$cov(x,y) = \frac{1}{n-1}\displaystyle\sum_{i=1}^{n}(x_i -\bar x)(y_i - \bar y)$$
 
-Note that we devide by $(n-1)$ here, because of the assumption that this particular data is a _sample of a bigger population_. The bigger population here could be the entire world population. When working with populations. The general rule is to divide by $n$. When working with a sample, you should divide by $n-1$. In practice, however, you'll see the two formulas are often being used interchangeably. 
+Note that we divide by $(n-1)$ here, because of the assumption that this particular data is a _sample of a bigger population_. The bigger population here could be the entire world population. When working with populations. The general rule is to divide by $n$. When working with a sample, you should divide by $n-1$. In practice, however, you'll see the two formulas are often being used interchangeably. 
 
 ### Mean Normalization 
 
-Looking at the formula of covariance, you'll noticed that it is composed out of $(x_i -\bar x)$ and $(y_i -\bar y)$. These are also known as the **mean normalized** variables $x$ and $y$. The idea is that you take each element in $x$ and $y$ and respectively subtract the mean of $x$ and $y$. The result is that your "altered" x and y now have mean 0.
+Looking at the formula of covariance, you'll notice that it is composed out of $(x_i -\bar x)$ and $(y_i -\bar y)$. These are also known as the **mean normalized** variables $x$ and $y$. The idea is that you take each element in $x$ and $y$ and respectively subtract the mean of $x$ and $y$. The result is that your "altered" x and y now have mean 0.
 
 So how do you do  this? You can write a function that takes in a vector, calculates the mean of this vector and subtracts the calculated mean value from each element to calculate $(x_i -\bar x)$ and  $(y_i -\bar y)$ . 
 
@@ -83,7 +83,7 @@ So how do you do  this? You can write a function that takes in a vector, calcula
 import numpy as np
 
 # Write a function to take in an iterable, calculate the mean and subtract the mean value
-# from each element , creating and returning a new list. 
+# from each element, creating and returning a new list. 
 
 def mean_normalize(var):
 
@@ -138,7 +138,7 @@ Now that you have normalized the variables height and weight, you have to go ahe
 
 [Here is a great article explaining this in detail](https://betterexplained.com/articles/vector-calculus-understanding-the-dot-product/).
 
-For two vectors a and b, a dot product is calculated by multiplying each element of one vector to its counterpart in the second, and then adding them up together. Imagive you want to take the dot product of two variables `a` and `b`:
+For two vectors a and b, a dot product is calculated by multiplying each element of one vector to its counterpart in the second, and then adding them up together. Imagine you want to take the dot product of two variables `a` and `b`:
 
 ```
  a[0] * b[0] + a[1] * b[1] + a[2] * b[2] ...
@@ -268,7 +268,7 @@ data.cov()
 
 
 
-You'll notice that you don't just get one value but four. It's important to know that covariances (as well as correlations) are oftehn shown in matrix form. The covariance between height and weight is exactly what we calculated. The matrix also shows the covariance of a variable with itself on the diagonal. The off-diagonal values show the covariance value (which is the same value twice: the covariance between weight and height is the same as the covariance between height and weight). 
+You'll notice that you don't just get one value but four. It's important to know that covariances (as well as correlations) are often shown in matrix form. The covariance between height and weight is exactly what we calculated. The matrix also shows the covariance of a variable with itself on the diagonal. The off-diagonal values show the covariance value (which is the same value twice: the covariance between weight and height is the same as the covariance between height and weight). 
 
 Remember that covariance is a metric that is hard to interpret. Let's dig a little deeper by visualizing height and weight on a scatter plot! 
 
@@ -288,7 +288,7 @@ So we can see there is quite a bit of positive relationship between the two, but
 
 ## Calculating the Correlation
 
-Once again, heres the formula to calculate the correlation. 
+Once again, here's the formula to calculate the correlation. 
 $$ r = \frac{\sum_{i=1}^{n}(x_i -\bar x)(y_i - \bar y)} {\sqrt{\sum_{i=1}^{n}(x_i - \bar x)^2 \sum_{i=1}^{n}(y_i-\bar y)^2}}$$
 There are a lot of mean normalizations going on here. Try to use all the above to create a new function `correlation()`, and use the function to create a correlation between weight and height.
 
@@ -323,9 +323,9 @@ correlation(data['height'], data['weight'])
 
 
 
-A correlation of .98, that's very close to 1! That means that there is clearlt a strong relationship between height and weight. At least, for this particular sample!  And there is a takeaway in this. sample size plays a major rule in determining the nature of a variable and its relationship with other variables. The set of 20 records we have seem to correlate highly, but if you look at 20 other people, you'll see that this result will be different. The correlation here will depend on the _sample_, and you'll see that this will differ more clearly when working with smaller samples.
+A correlation of .98, that's very close to 1! That means that there is clearly a strong relationship between height and weight. At least, for this particular sample!  And there is a takeaway in this. sample size plays a major rule in determining the nature of a variable and its relationship with other variables. The set of 20 records we have seem to correlate highly, but if you look at 20 other people, you'll see that this result will be different. The correlation here will depend on the _sample_, and you'll see that this will differ more clearly when working with smaller samples.
 
-As a last check , let's use pandas `DataFrame.corr()` method to see how that works. 
+As a last check, let's use pandas `DataFrame.corr()` method to see how that works. 
 
 
 ```python
@@ -378,4 +378,4 @@ This method returns another matrix. You can see that a correlation of a variable
 
 ## Summary 
 
-In this lab you learned how to calculate the covariance and correlation between variables. You also looked at mean normalization and dot products. Finally, you learned how to calculate these measures using pandas built in methods. 
+In this lab you learned how to calculate the covariance and correlation between variables. You also looked at mean normalization and dot products. Finally, you learned how to calculate these measures using pandas built-in methods. 
