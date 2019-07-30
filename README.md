@@ -53,6 +53,39 @@ First, let's load this dataset in python using pandas. Next, print the length of
 # max    74.000000  210.000000
 ```
 
+
+```python
+# __SOLUTION__ 
+# Load the dataset into pandas and perform basic inspection
+
+import pandas as pd
+data = pd.read_csv('heightweight.csv')
+
+print (len(data))
+
+print(data.head())
+
+print (data.describe())
+```
+
+    20
+       height  weight
+    0      68     165
+    1      71     201
+    2      61     140
+    3      69     170
+    4      71     192
+              height      weight
+    count  20.000000   20.000000
+    mean   66.850000  165.800000
+    std     5.112163   28.971129
+    min    58.000000  115.000000
+    25%    63.250000  143.750000
+    50%    68.500000  170.000000
+    75%    71.000000  192.750000
+    max    74.000000  210.000000
+
+
 ## Calculating the Covariance 
 
 Here's the covariance formula once again. 
@@ -92,6 +125,40 @@ mean_normalize([1,2,3,4,5]), mean_normalize([11,22,33,44,55])
 
 
 
+
+```python
+# __SOLUTION__ 
+import numpy as np
+
+# Write a function to take in an iterable, calculate the mean and subtract the mean value
+# from each element, creating and returning a new list. 
+
+def mean_normalize(var):
+
+    norm = [] # Vector for storing output values 
+    n = 0     # a counter to identify the position of next element in vector
+    mean = np.mean(var)
+    
+    # for each element in the vector, subtract from mean and add the result to norm
+    for i in var:
+        diff = var[n] - mean
+        norm.append(diff)
+        n = n + 1
+    
+    return norm
+
+mean_normalize([1,2,3,4,5]), mean_normalize([11,22,33,44,55])
+
+# ([-2.0, -1.0, 0.0, 1.0, 2.0], [-22.0, -11.0, 0.0, 11.0, 22.0])
+```
+
+
+
+
+    ([-2.0, -1.0, 0.0, 1.0, 2.0], [-22.0, -11.0, 0.0, 11.0, 22.0])
+
+
+
 Great! You'll see that our function maintains the _variance_ of list elements and moves the mean to zero. As a quick test, you can visualize what exactly happens to the data with mean normalization. 
 
 Use seaborn to plot the height variable distribution before and after the normalization process. 
@@ -115,7 +182,22 @@ Use seaborn to plot the height variable distribution before and after the normal
 
 
 
-![png](index_files/index_6_1.png)
+![png](index_files/index_8_1.png)
+
+
+
+```python
+# __SOLUTION__ 
+# Visualize the height data distribution before and after mean normalization 
+% matplotlib inline
+height = mean_normalize(data.height)
+import seaborn as sns
+sns.distplot(data.height)
+sns.distplot(height);
+```
+
+
+![png](index_files/index_9_0.png)
 
 
 There you go! The _shape_ of the data isn't changed, but the mean is just shifted! You can also try this for the weight variable.
@@ -153,6 +235,39 @@ dot_product(a,b)
 #  32  calculated as (1*4 + 2*5 + 3*6)
 ```
 
+
+```python
+# __SOLUTION__ 
+# Write a function to calculate the dot product of two iterables 
+
+def dot_product(x,y):
+    n = 0  # a counter pointing to the current element of vector(s)
+    prod_vec = [] # Initliaze an empty list to store the results 
+    
+    # For all elements in the vectors, multiply and save results in prod_vec
+    for i in range(len(x)):
+        prod = x[i]* y[i]
+        prod_vec.append(prod)
+        n += 1
+        
+    dot_prod = np.sum(prod_vec)
+    return dot_prod
+
+a = [1,2,3]
+b = [4,5,6]
+
+dot_product(a,b)
+
+#  32  calculated as (1*4 + 2*5 + 3*6)
+```
+
+
+
+
+    32
+
+
+
 Now that you have the numerator of the formula sorted out, let's finally write a function `covariance()` that takes the height and weight lists created earlier and returns the covariance value using the functions you created earlier. 
 
 
@@ -169,6 +284,45 @@ def covariance(var1, var2):
 
 # 144.75789473684208
 ```
+
+
+```python
+# __SOLUTION__ 
+# Calculate covariance using functions above
+
+def covariance(var1, var2):
+
+    # Formula for covariance is:
+    # [Sum (x_i - X)(y_i - Y)] / N-1 
+    
+    # Sanity Check : Check to see if both vectors are of same length
+    # Exit the function if variables have different lengths
+
+    if len(var1) != len(var2):
+        return None 
+    else: 
+       
+        # Mean normalize both variables 
+        x = mean_normalize(var1)
+        y = mean_normalize(var2)
+        
+        # Take the dot product of mean normalized variables
+        result = dot_product(x,y)
+
+        # divide the dot product by n-1    
+        return result /((len(var1)) -1)
+
+covariance(data['height'], data['weight'])
+
+# 144.75789473684208
+```
+
+
+
+
+    144.75789473684208
+
+
 
 Now verify your results with pandas built in `DataFrame.cov()` method.
 
@@ -220,6 +374,54 @@ Now verify your results with pandas built in `DataFrame.cov()` method.
 
 
 
+
+```python
+# __SOLUTION__ 
+data.cov()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>height</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>height</th>
+      <td>26.134211</td>
+      <td>144.757895</td>
+    </tr>
+    <tr>
+      <th>weight</th>
+      <td>144.757895</td>
+      <td>839.326316</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
 You'll notice that you don't just get one value but four. It's important to know that covariances (as well as correlations) are often shown in matrix form. The covariance between height and weight is exactly what we calculated. The matrix also shows the covariance of a variable with itself on the diagonal. The off-diagonal values show the covariance value (which is the same value twice: the covariance between weight and height is the same as the covariance between height and weight). 
 
 Remember that covariance is a metric that is hard to interpret. Let's dig a little deeper by visualizing height and weight on a scatter plot! 
@@ -242,7 +444,20 @@ Remember that covariance is a metric that is hard to interpret. Let's dig a litt
 
 
 
-![png](index_files/index_15_1.png)
+![png](index_files/index_21_1.png)
+
+
+
+```python
+# __SOLUTION__ 
+# Plot a scatter graph between height and weight to visually inspect the relationship 
+
+import matplotlib.pyplot as plt
+plt.scatter(data.height, data.weight);
+```
+
+
+![png](index_files/index_22_0.png)
 
 
 So we can see there is quite a bit of positive relationship between the two, but a covariance value is a bit hard to interpret. So let's try calculating correlation. 
@@ -265,6 +480,38 @@ def correlation(var1,var2):
 
 # 0.98
 ```
+
+
+```python
+# __SOLUTION__ 
+# Calculate Correlation between two variables using formula above
+import math
+def correlation(var1,var2):
+    
+    if len(var1) != len(var2):
+        return None 
+    else: 
+       
+        mean_norm_var1 = mean_normalize(var1)
+        mean_norm_var2 = mean_normalize(var2)
+        
+        # Try the numpy way for calculating doc product
+        var1_dot_var2 = [a * b for a, b in list(zip(mean_norm_var1, mean_norm_var2))]
+        
+        var1_squared = [i * i for i in mean_norm_var1]
+        var2_squared = [i * i for i in mean_norm_var2]
+        
+        return np.round(sum(var1_dot_var2) / math.sqrt(sum(var1_squared) * sum(var2_squared)), 2)
+
+correlation(data['height'], data['weight'])
+```
+
+
+
+
+    0.98
+
+
 
 A correlation of .98, that's very close to 1! That means that there is clearly a strong relationship between height and weight. At least, for this particular sample!  And there is a takeaway in this. sample size plays a major rule in determining the nature of a variable and its relationship with other variables. The set of 20 records we have seem to correlate highly, but if you look at 20 other people, you'll see that this result will be different. The correlation here will depend on the _sample_, and you'll see that this will differ more clearly when working with smaller samples.
 
@@ -309,6 +556,54 @@ As a last check, let's use pandas `DataFrame.corr()` method to see how that work
     </tr>
     <tr>
       <th>Weight</th>
+      <td>0.9774</td>
+      <td>1.0000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+# __SOLUTION__ 
+data.corr()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>height</th>
+      <th>weight</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>height</th>
+      <td>1.0000</td>
+      <td>0.9774</td>
+    </tr>
+    <tr>
+      <th>weight</th>
       <td>0.9774</td>
       <td>1.0000</td>
     </tr>
