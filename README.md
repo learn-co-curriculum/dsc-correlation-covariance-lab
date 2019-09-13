@@ -100,7 +100,7 @@ Looking at the formula of covariance, you'll notice that it is composed out of $
 
 So how do you do  this? You can write a function that takes in a vector, calculates the mean of this vector and subtracts the calculated mean value from each element to calculate $(x_i -\bar x)$ and  $(y_i -\bar y)$ . 
 
-*Hint*: you can use `np.mean()` to calculate the mean for above formula.
+*Hint*: you can use `np.mean()` to calculate the mean for the above formula.
 
 
 ```python
@@ -295,7 +295,7 @@ def covariance(var1, var2):
     # Formula for covariance is:
     # [Sum (x_i - X)(y_i - Y)] / N-1 
     
-    # Sanity Check : Check to see if both vectors are of same length
+    # Sanity Check: Check to see if both vectors are of same length
     # Exit the function if variables have different lengths
 
     if len(var1) != len(var2):
@@ -460,7 +460,7 @@ plt.scatter(data.height, data.weight);
 ![png](index_files/index_22_0.png)
 
 
-So we can see there is quite a bit of positive relationship between the two, but a covariance value is a bit hard to interpret. So let's try calculating correlation. 
+So we can see there is quite a bit of positive relationship between the two, but a covariance value is a bit hard to interpret. So let's try calculating the correlation. 
 
 ## Calculating the Correlation
 
@@ -513,7 +513,7 @@ correlation(data['height'], data['weight'])
 
 
 
-A correlation of .98, that's very close to 1! That means that there is clearly a strong relationship between height and weight. At least, for this particular sample!  And there is a takeaway in this. sample size plays a major rule in determining the nature of a variable and its relationship with other variables. The set of 20 records we have seem to correlate highly, but if you look at 20 other people, you'll see that this result will be different. The correlation here will depend on the _sample_, and you'll see that this will differ more clearly when working with smaller samples.
+A correlation of .98, that's very close to 1! That means that there is clearly a strong relationship between height and weight. At least, for this particular sample!  And there is a takeaway in this. sample size plays a major rule in determining the nature of a variable and its relationship with other variables. The set of 20 records we seem to correlate highly, but if you look at 20 other people, you'll see that this result will be different. The correlation here will depend on the _sample_, and you'll see that this will differ more clearly when working with smaller samples.
 
 As a last check, let's use pandas `DataFrame.corr()` method to see how that works. 
 
@@ -617,4 +617,4 @@ This method returns another matrix. You can see that a correlation of a variable
 
 ## Summary 
 
-In this lab you learned how to calculate the covariance and correlation between variables. You also looked at mean normalization and dot products. Finally, you learned how to calculate these measures using pandas built-in methods. 
+In this lab, you learned how to calculate the covariance and correlation between variables. You also looked at mean normalization and dot products. Finally, you learned how to calculate these measures using pandas built-in methods. 
