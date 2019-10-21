@@ -3,7 +3,7 @@
 
 ## Introduction
 
-In this lab, you will work towards calculating covariance and correlation for a given dataset in python. You'll use the formulas shown in previous lessons and verify our results with python libraries.
+In this lab, you will calculate covariance and correlation for a some data in Python by using the formulas shown in previous lesson. 
 
 ## Objectives
 
