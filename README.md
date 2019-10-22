@@ -3,7 +3,7 @@
 
 ## Introduction
 
-In this lab, you will calculate covariance and correlation for a some data in Python lists by using the formulas shown in previous lesson. 
+In this lab, you will calculate covariance and correlation for some data in Python lists by using the formulas shown in the previous lesson. 
 
 ## Objectives
 
