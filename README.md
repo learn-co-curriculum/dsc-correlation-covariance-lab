@@ -60,7 +60,9 @@ $$cov (X,Y) = \frac{1}{n-1}\displaystyle\sum_{i=1}^{n}(x_i -\bar x)(y_i - \bar y
 This is mostly the same formula, with two differences:
 
 1. Instead of $\mu_x$ and $\mu_y$ (the means for _populations_ $X$ and $Y$), we have $\bar x$ and $\bar y$, which are the means for _samples_ $X$ and $Y$. In both cases, the mean is the sum of the values divided by the count of the values.
-2. We divide by $(n-1)$ here, instead of dividing by $n$.
+2. We divide by $(n-1)$ here, instead of dividing by $n$. As with the differences in calculating variance and standard deviation for a *population* and a *sample*:
+    - When calculating for a *population*, we would divide by $n$
+    - When calculating for a *sample* (as we are now), we divide by $n-1$
 
 These parts of the formula are the same:
 
