@@ -197,7 +197,13 @@ Before looking at the answer below, try to identify: **Which (if any) questions 
  - Because the covariance is not (close to) zero, we can say that there ***is*** a linear relationship between weight and height.
  - Because the covariance is positive rather than negative, we can say that in general, yes, weight increases as height increases.
 
-So far, we cannot give a clear answer to question 3, because the scale of the covariance is based on the units of measurement in this data (inches and pounds, in this case). In order to answer question 3, let's calculate the correlation.
+So far, we cannot give a clear answer to question 3, because the scale of the covariance is based on the units of measurement in this data (inches and pounds, in this case). 
+
+While the covariance can be used to figure out *in which direction* two variables have a linear relationship — does one increase while the other decreases, or vice versa — any conclusion we might draw about the *strength* of the linear relationship from the covariance would be an artifact of these particular units.
+
+If we want to make a generalized claim about the strength of the relationship in order to compare it to measurements using different units (e.g. height and resting heart rate), we need a measure that compares like units with like units. **Correlation** (specifically Pearson correlation) converts the units of each variable to "units of standard deviation" and standarizes the scale of the resulting calculation from -1 to 1, allowing us to make claims about the strength of the relationship that are not tied to the original measurement units.
+
+In order to answer question 3, let's calculate the correlation.
 
 ## Calculating the Correlation
 
