@@ -6,7 +6,8 @@ In this lab, you will calculate covariance and correlation for some data in Pyth
 
 ## Objectives
 
-You will be able to: 
+You will be able to:
+
 - Calculate covariance and correlation  
 - Declare and use a function with arguments   
 
