@@ -6,7 +6,8 @@ In this lab, you will calculate covariance and correlation for some data in Pyth
 
 ## Objectives
 
-You will be able to: 
+You will be able to:
+
 - Calculate covariance and correlation  
 - Declare and use a function with arguments   
 
@@ -149,7 +150,9 @@ ax.legend(loc="center");
 ```
 
 
+    
 ![png](index_files/index_7_0.png)
+    
 
 
 There you go! The _shape_ of the data isn't changed, but the mean is just shifted! You can also try this for the `weight` variable if you wish.
@@ -361,7 +364,9 @@ ax.legend();
 ```
 
 
+    
 ![png](index_files/index_18_0.png)
+    
 
 
 ## Simplifying the Process with NumPy
